@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&display=swap');
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 650px;
+}
+header{
+    background: rgb(168,203,48);
+    background: -moz-linear-gradient(0deg, rgba(168,203,48,1) 0%, rgba(128,150,43,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(168,203,48,1) 0%, rgba(128,150,43,1) 100%);
+    background: linear-gradient(0deg, rgba(168,203,48,1) 0%, rgba(128,150,43,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a8cb30",endColorstr="#80962b",GradientType=1);
+    font-family: "Roboto Light";
+    color: white;
+    height: 80px;
+}
+h1 {
+    margin-left: 10px;
+    padding-top:  20px;
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+    text-align-last: justify;
+}
+ul li{
+    display: inline-block;
+}
+ul li::after {
+    content: " ";
+    background-image: url('arrow copy.png');
+    margin-left: 20px;
+    padding:0px 0 10px 20px;
+    width:50px;
+}
+.hlp::after{
+    background: none;
+}
+
+
+main{
+    height: 200px;
+    background: #eff2fe;
+}
+.img_f1{
+    float: left;
+    margin-right: -300px;
+    margin-top: -60px;
+}
+.big{
+    color: green;
+}
+.lt{
+    font-size: 12pt;
+    color: mediumseagreen;
+}
+main p {
+    margin-right: 5%;
+    margin-top: -15px;
+    margin-left: 45%;
+}
+main h1{
+    text-align: center;
+    margin-left: 60px;
+}
+.img_f2{
+    float:left;
+    margin-top: 18px;
+}
+.img_f3{
+    float:left;
+    margin-top: 18px;
+}
+.toolittle{
+    font-size: 9pt;
+}
+.little{
+    color: mediumseagreen;
+}
