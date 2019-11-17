@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link href="Style.css" rel="stylesheet">
+<script src="MyFile.js"></script>
+<title>
+Tamagochi
+</title>
+<script>
+function ChangeName()
+{
+    var name = document.getElementById("name");
+    var val=name.value;
+    Tamagochi.name=val;
+}
+</script>
+</head>
+
+<body>
+<h1>
+Tamagochi
+</h1>
+<input id="name" type="text" size="30">
+<table>
+    <tr>
+        <td>
+<button type="button" value="input" onclick="ChangeName()">Name</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+<button type="button" onclick="Tamagochi.eat()">Eat</button>
+        </td>
+</tr>
+    <tr>
+        <td>
+<button type="button" onclick="Tamagochi.drink()">Drink</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+<button type="button" onclick="Tamagochi.sleep()">Sleep</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+<button type="button" onclick="Tamagochi.play()">Play</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+<button type="button" onclick="Tamagochi.info()">Info</button>
+        </td>
+    </tr>
+</table>
+</body>
+
+</html>
