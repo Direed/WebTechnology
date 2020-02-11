@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>LrDOM</title>
+</head>
+<body>
+
+<script>
+var elem = document.createElement("h1");
+elem.setAttribute("id","heading")
+var text = document.createTextNode("DOM");
+elem.appendChild(text);
+document.body.appendChild(elem);
+
+console.log(document.getElementById("heading").style)
+
+document.getElementById("heading").style.color = "red";
+document.getElementById("heading").style.textAlign = "center";
+document.getElementById("heading").style.borderStyle = "dotted";
+document.getElementById("heading").style.borderColor = "red";
+</script>
+
+</body>
+</html>

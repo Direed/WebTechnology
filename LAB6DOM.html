@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab6</title>
+        <style>
+             .gamepole {
+                width: 300px;
+                height: 300px;
+             } 
+        </style>
+    </head>
+    <body>
+        <div id="pole" class="gamepole"></div>
+        <script>
+            var gamepole;
+            gamepole=document.getElementById("pole");
+            var i,j,randnumb,flag,elem;
+            var lastnumb=[];
+            var masrand=[];
+            for(let i=0;i<=15;i++)
+            {
+                masrand.push(i);
+            }
+            masrand=masrand.sort(function (){
+                return Math.random() - 0.5;
+            })
+            console.log(masrand);
+            for(let i=0;i<masrand.length;i++)
+            {
+                elem = document.createElement("button");
+                if(masrand[i]!=0)
+                {
+                elem.innerText=masrand[i];
+                }
+                else
+                {
+                elem.innerHTML="&nbsp;";
+                }
+                elem.style.display="inline-block";
+                elem.style.height="25%";
+                elem.style.width="25%";
+                gamepole.appendChild(elem);
+            }
+
+            /*for(i=0;i<=15;i++)
+            {
+                randnumb=Math.round(Math.random() * (15 - 0) + 0);
+                if(lastnumb.length==0)
+                {                    
+                    elem = document.createElement("button");
+                    elem.setAttribute("value",randnumb);
+                    gamepole.appendChild(elem);
+                    lastnumb.push(randnumb);
+                    console.log(lastnumb)
+                }
+                else
+                {
+                for(j=0;j<=lastnumb.length;j++)
+                {
+                if(randnumb!=lastnumb[j])
+                {
+                    flag=true;
+                }
+                else
+                {
+                    flag=false; 
+                }
+                }
+                }
+                if(flag==true)
+                {
+                    elem = document.createElement("button");
+                    elem.setAttribute("value",randnumb);
+                    gamepole.appendChild(elem);
+                    lastnumb.push(randnumb);
+                }
+            }*/
+        </script>
+    </body>
+</html>

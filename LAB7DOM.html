@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+
+        <script>
+            let images,paragraps;
+            images = document.getElementsByTagName("img");
+            paragraps = document.getElementsByTagName("a");
+            console.log(paragraps);
+            for(let i = 0; i<images.length;i++)
+            {
+                images[i].style.display="block";
+                images[i].style.position="absolute";
+                images[i].style.zIndex="999999";
+                images[i].style.left="0";
+                images[i].style.top="0";
+            }
+            for(let j=0; j<paragraps.length;j++)
+            {
+                paragraps[i].setAttribute("style", "color:red;");
+            }
+            /*images.forEach(element => {
+                
+            });*/
+        </script>
+
+    </body>
+</html>

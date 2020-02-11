@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>  
+<head>
+<title>LrDOM3</title>
+</head>
+<body>
+<div id="container"></div>
+
+<script>
+    
+    const data = {
+    tag: "div",
+    id: "todo-list",
+    className: "center",
+    attr: {
+        title: "Dynamic html"
+    },
+    children: [
+        {
+            tag: "h3",
+            className: "title",
+            children: ["ToDo list"]
+        },
+        {
+            tag: "div",
+            className: "navigation",
+            children: [
+                {
+                    tag: "input",
+                    id: "item-input",
+                    attr: {
+                        placeholder: "Item text"
+                    }
+                },
+                {
+                    tag: "input",
+                    id: "submit",
+                    attr: {
+                        type: "submit",
+                        value: "Add"
+                    }
+                }
+            ]
+        },
+        {
+            tag: "div",
+            className: "content",
+            children: [
+                {
+                    tag: "ul",
+                    id: "todo-items",
+                    className: "list",
+                    children: [
+                        {
+                            tag: "li",
+                            children: ["Make example"]
+                        }, 
+                        {
+                            tag: "li",
+                            className: "done",
+                            children: ["Drink coffee"]
+                        },                         {
+                            tag: "li",
+                            className: "done",
+                            children: ["Have a nice day"]
+                        }, 
+                    ]
+                }
+            ]
+        }
+    ]
+}
+function render(data,container)
+{
+    var b = document.createElement(data.tag);
+    if(data.id!=undefined)
+    {
+    b.setAttribute("id",data.id)
+    }
+    if(data.className!=undefined)
+    {
+    b.setAttribute("className",data.className)
+    }
+    if(data.attr!=undefined)
+    {
+        if(data.attr.type!=undefined)
+        {
+        b.setAttribute("type",data.attr.type)
+        }
+        if(data.attr.value!=undefined)
+        {
+        b.setAttribute("value",data.attr.value)
+        }
+        if(data.attr.placeholder!=undefined)
+        {
+        b.setAttribute("placeholder",data.attr.placeholder)
+        }
+        if(data.attr.title!=undefined)
+        {
+        b.setAttribute("title",data.attr.title)
+        }
+    }
+    container.appendChild(b);
+    if(data.children==undefined||data.children==null||data.children==false)
+    {
+        return data.parentNode;
+    }
+    else
+    {
+    data.children.forEach(child => {
+        if(typeof child == "string")
+        {
+            var text = document.createTextNode(child);
+            b.appendChild(text);
+            return data.parentNode;
+        }
+        else
+        {
+        render(child,b);
+        }
+    })
+    };
+  /*  if(data.children==undefined||data.children==null||data.children==false||typeof data.children=="string")
+    {
+        console.log("lol");
+        console.log(b);
+        render(data.Next,b.parentNode);  
+    }
+    else
+    {
+    data.children.forEach(child => {
+        render(child,b);
+    })
+    };
+  */
+}
+
+render(data, document.getElementById("container"));
+
+</script>
+
+</body>
+</html>
