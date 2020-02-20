@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            ZAVD1
+        </title>
+    </head>
+    <body>
+        <script>
+           class Hello{
+                constructor(){
+                    this.hello = this.hello.bind(this);
+                };
+                hello()
+                {
+                    alert("Hello, guys(or gays)");
+                }
+            }
+            objbut = new Hello;
+            let butt;
+            butt = document.createElement("input");
+            butt.type="button";
+            butt.value="Hello";
+            butt.addEventListener("click", objbut.hello);
+            document.body.appendChild(butt);
+        </script>
+    </body>
+</html>

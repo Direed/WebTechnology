@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            ZAVD4
+        </title>
+    </head>
+    <body>
+        <script>
+            function getValueInput()
+            {
+                let text = document.getElementById("val");
+                let val = text.value;
+                if(val!="")
+                {
+                let li = document.createElement("li");
+                li.innerText=val;
+                li.draggable=true;
+                ol.appendChild(li);
+                text.value="";
+                }
+            }
+            function showtext(event)
+            {
+                let target = event.target;
+                if(target.tagName!="LI")
+                {
+                    return;
+                }
+                let text = document.getElementById("val");
+                text.value = target.innerText;
+            }
+            function hidetext()
+            {
+                let text = document.getElementById("val");
+                text.value = lastvalue;
+            }
+            function lastznach()
+            {
+                let text = document.getElementById("val");
+                lastvalue = text.value;
+            }
+            function getId(event)//dragstart
+            {
+                let target = event.target;
+                if(target.tagName!="LI")
+                {
+                    return;
+                }
+                item = target;
+            }
+            function getLastId(event)//dragover
+            {
+                let target = event.target;
+                if(target.tagName!="LI")
+                {
+                    return;
+                }
+                lastitem = target;
+                event.preventDefault();
+            }
+            function moveli(event)//drop
+            {
+                event.preventDefault();
+                console.log(item, lastitem);
+                var tasklist = document.getElementById("tasklist");
+                tasklist.insertBefore(item,lastitem);
+            }
+            var lastvalue,item,lastitem;
+            let input;
+            input = document.createElement("input");
+            input.id="val";
+            input.addEventListener("keyup", lastznach);
+            //container.addEventListener("click", targetelement);
+            document.body.appendChild(input);
+            let butt;
+            butt = document.createElement("input");
+            butt.type="button";
+            butt.value="ADD";
+            butt.addEventListener("click", getValueInput);
+            document.body.appendChild(butt);
+            let ol;
+            ol = document.createElement("ol");
+            ol.id = "tasklist";
+            ol.addEventListener("mouseover", showtext);
+            ol.addEventListener("mouseout", hidetext);
+            ol.addEventListener("dragstart", getId);
+            ol.addEventListener("dragover", getLastId);
+            ol.addEventListener("drop", moveli);
+            document.body.appendChild(ol);
+        </script>
+    </body>
+</html>

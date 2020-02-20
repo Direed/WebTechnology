@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            ZAVD3
+        </title>
+    </head>
+    <body>
+        <script>
+            function targetelement(event)
+            {
+                console.log(event);
+                let target = event.target;
+                console.log(target, target.tagName);
+                if(target.tagName != 'INPUT') return;
+                colors(target);
+
+            }
+            function colors(input)
+            {
+                input.style.backgroundColor = "red";
+            }
+            let container;
+            container = document.createElement("div");
+            container.addEventListener("click", targetelement);
+            document.body.appendChild(container);
+            let butt;
+            for(let i=0; i<5; i++)
+            {
+                butt = document.createElement("input");
+                butt.type="button";
+                butt.value=i;
+                container.appendChild(butt);
+            }
+        </script>
+    </body>
+</html>
