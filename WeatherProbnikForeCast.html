@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+</head>
+<body>
+<div id ="block">
+<h1>Smila - weather</h1>
+<table id = "table" class="table table-striped">
+    <tr>
+        <th scope="col">Date and time</th>
+        <th scope="col">Picture</th>
+        <th scope="col">Temperature</th>
+        <th scope="col">Pressure</th>
+        <th scope="col">Humidity</th>
+        <th scope="col">Wind speed</th>
+
+    </tr>
+</table>
+
+</div>
+<script charset="utf-8">
+fetch('http://api.openweathermap.org/data/2.5/forecast?q=Smila&appid=d81029a0acf74508d950b9c4307ce255&lang=ru')
+.then(response => response.json())
+.then(data => {
+    let tbl = document.getElementById("table");
+    let td,tr;
+    let lastdate=new Date(0);
+    console.log(data);
+    for(let i = 0;i<data.list.length;i++)
+    {
+        now=new Date(data.list[i].dt*1000);
+        if((now.getMonth()==lastdate.getMonth())&&(now.getDay()==lastdate.getDay())&&(now.getDate()==lastdate.getDate()))
+        {
+            tr = document.createElement("tr");
+            let string_time_text;
+            td = document.createElement("td");
+            string_time_text=now.getHours()+":00";
+            td.textContent=string_time_text;
+            td.scope="row";
+            tr.appendChild(td);
+            getWeatherOfDay(data.list[i].weather[0].main);
+            td = document.createElement("td");
+            if((data.list[i].main.temp-273.15)>0)
+            {td.textContent="+"+(data.list[i].main.temp-273.15).toFixed(2)+"C";}
+            else {td.textContent=(data.list[i].main.temp-273.15).toFixed(2)+"C"};
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent=data.list[i].main.pressure;
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent=data.list[i].main.humidity+"%";
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent=data.list[i].wind.speed;
+            tr.appendChild(td);
+            tbl.appendChild(tr);
+        }
+        else
+        {
+            let datetext = document.createElement("tr");
+            let string_date_text;
+            let tdtext = document.createElement("td");
+            string_date_text=getDayOfWeek(now)+" "+now.getDate()+" "+getMonthOfYear(now);
+            tdtext.textContent=string_date_text;
+            tdtext.style.fontWeight="bold";
+            tdtext.scope="row";
+            datetext.appendChild(tdtext);
+            td=document.createElement("td");
+            datetext.appendChild(td);
+            td=document.createElement("td");
+            datetext.appendChild(td);
+            td=document.createElement("td");
+            datetext.appendChild(td);
+            td=document.createElement("td");
+            datetext.appendChild(td);
+            td=document.createElement("td");
+            datetext.appendChild(td);
+            tbl.appendChild(datetext);
+            tr = document.createElement("tr");
+            let string_time_text;
+            td = document.createElement("td");
+            string_time_text = now.getHours()+":00";
+            td.textContent=string_time_text;
+            tr.appendChild(td);
+            getWeatherOfDay(data.list[i].weather[0].main);
+            td = document.createElement("td");
+            if((data.list[i].main.temp-273.15)>0)
+            {td.textContent="+"+(data.list[i].main.temp-273.15).toFixed(2)+"C";}
+            else {td.textContent=(data.list[i].main.temp-273.15).toFixed(2)+"C"};
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent=data.list[i].main.pressure;
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent=data.list[i].main.humidity+"%";
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            td.textContent=data.list[i].wind.speed;
+            tr.appendChild(td);
+            tbl.appendChild(tr);
+            tbl.appendChild(tr);
+        }
+        lastdate=now;
+    }
+    tbl.style.textAlign="center";
+
+
+
+
+
+    function getDayOfWeek(daynow)//Визначення дня неділі
+            {
+                if(daynow.getDay()==0)
+                {string_date_text="Sunday"}
+                else
+                if(daynow.getDay()==1)
+                {string_date_text="Monday";}
+                else
+                if(daynow.getDay()==2)
+                {string_date_text="Tuesday"}
+                else
+                if(daynow.getDay()==3)
+                {string_date_text="Wednesday";}
+                else
+                if(daynow.getDay()==4)
+                {string_date_text="Thursday";}
+                else
+                if(daynow.getDay()==5)
+                {string_date_text="Saturday";}
+                return string_date_text;
+            }
+    function getMonthOfYear(datenow)//Визначення місяця
+            {
+                if(datenow.getMonth()==0)
+                {string_date_text="January"}
+                else
+                if(datenow.getMonth()==1)
+                {string_date_text="February"}
+                else
+                if(datenow.getMonth()==2)
+                {string_date_text="March"}
+                else
+                if(datenow.getMonth()==3)
+                {string_date_text="April"}
+                else
+                if(datenow.getMonth()==4)
+                {string_date_text="May"}
+                else
+                if(datenow.getMonth()==5)
+                {string_date_text="June"}
+                else
+                if(datenow.getMonth()==6)
+                {string_date_text="July"}
+                else
+                if(datenow.getMonth()==7)
+                {string_date_text="August"}
+                else
+                if(datenow.getMonth()==8)
+                {string_date_text="September"}
+                else
+                if(datenow.getMonth()==9)
+                {string_date_text="October"}
+                else
+                if(datenow.getMonth()==10)
+                {string_date_text="November"}
+                else
+                if(datenow.getMonth()==11)
+                {string_date_text="December"}
+                return string_date_text;
+            }
+            function getWeatherOfDay(weather)//Додавння зображення
+                {
+                    if(weather=="Clouds")
+                    {
+                        let img=document.createElement("img");
+                        img.src="d300.gif";
+                        td=document.createElement("td");
+                        td.align="center";
+                        td.appendChild(img);
+                    }
+                    else
+                    if(weather=="Snow")
+                    {
+                        let img=document.createElement("img");
+                        img.src="d321.gif";
+                        td=document.createElement("td");
+                        td.align="center";
+                        td.appendChild(img);
+                    }
+                    else
+                    if(weather=="Clear")
+                    {
+                        let img=document.createElement("img");
+                        img.src="d100.gif";
+                        td=document.createElement("td");
+                        td.align="center";
+                        td.appendChild(img);
+                    }
+                    else
+                    if(weather=="Rain")
+                    {
+                        let img=document.createElement("img");
+                        img.src="d320.gif";
+                        td=document.createElement("td");
+                        td.align="center";
+                        td.appendChild(img);
+                    }
+                    tr.appendChild(td);
+                }
+})
+.catch(error => console.log('error is', error));
+</script>
+</body>
+</html>

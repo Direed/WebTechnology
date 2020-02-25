@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+</head>
+<body>
+<div id ="block">
+<h1>Smila - weather</h1>
+<table id = "table" class="table table-striped">
+    <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Temperature</th>
+        <th scope="col">Pressure</th>
+        <th scope="col">Humidity</th>
+        <th scope="col">Wind speed</th>
+
+    </tr>
+</table>
+
+</div>
+<script charset="utf-8">
+fetch('http://api.openweathermap.org/data/2.5/weather?q=Smila&appid=d81029a0acf74508d950b9c4307ce255&lang=ru')
+.then(response => response.json())
+.then(data => {
+let block = document.getElementById("block");
+let tbl = document.getElementById("table");
+console.log(data);
+//data-block
+let datetext = document.createElement("tr");
+let string_date_text;
+now=new Date(data.dt*1000);//Отримання дати з формату timestamp
+            function getDayOfWeek(daynow)//Визначення дня неділі
+            {
+                if(daynow.getDay()==0)
+                {string_date_text="Sunday"}
+                else
+                if(daynow.getDay()==1)
+                {string_date_text="Monday";}
+                else
+                if(daynow.getDay()==2)
+                {string_date_text="Tuesday"}
+                else
+                if(daynow.getDay()==3)
+                {string_date_text="Wednesday";}
+                else
+                if(daynow.getDay()==4)
+                {string_date_text="Thursday";}
+                else
+                if(daynow.getDay()==5)
+                {string_date_text="Saturday";}
+                return string_date_text;
+            }
+            function getMonthOfYear(datenow)//Визначення місяця
+            {
+                if(datenow.getMonth()==0)
+                {string_date_text="January"}
+                else
+                if(datenow.getMonth()==1)
+                {string_date_text="February"}
+                else
+                if(datenow.getMonth()==2)
+                {string_date_text="March"}
+                else
+                if(datenow.getMonth()==3)
+                {string_date_text="April"}
+                else
+                if(datenow.getMonth()==4)
+                {string_date_text="May"}
+                else
+                if(datenow.getMonth()==5)
+                {string_date_text="June"}
+                else
+                if(datenow.getMonth()==6)
+                {string_date_text="July"}
+                else
+                if(datenow.getMonth()==7)
+                {string_date_text="August"}
+                else
+                if(datenow.getMonth()==8)
+                {string_date_text="September"}
+                else
+                if(datenow.getMonth()==9)
+                {string_date_text="October"}
+                else
+                if(datenow.getMonth()==10)
+                {string_date_text="November"}
+                else
+                if(datenow.getMonth()==11)
+                {string_date_text="December"}
+                return string_date_text;
+            }
+let tdtext = document.createElement("td");
+string_date_text=getDayOfWeek(now)+" "+now.getDate()+" "+getMonthOfYear(now);
+tdtext.textContent=string_date_text;
+datetext.appendChild(tdtext)
+tdtext.scope="row";
+tbl.appendChild(datetext);
+//end data-block
+
+// data-weather
+let tr = document.createElement("tr");
+let td = document.createElement("td");
+tr.appendChild(td);
+                function getWeatherOfDay(weather)//Додавння зображення
+                {
+                    if(weather=="Clouds")
+                    {
+                        let img=document.createElement("img");
+                        img.src="d300.gif";
+                        td=document.createElement("td");
+                        td.align="center";
+                        td.scope="row";
+                        td.appendChild(img);
+                    }
+                    tr.appendChild(td);
+                }
+console.log(data.weather[0].main);
+getWeatherOfDay(data.weather[0].main);
+td = document.createElement("td");
+if((data.main.temp-273.15)>0)
+{td.textContent="+"+(data.main.temp-273.15).toFixed(2)+"C";}
+else {td.textContent="-"+(data.main.temp-273.15).toFixed(2)+"C"};
+tr.appendChild(td);
+
+td = document.createElement("td");
+td.textContent=data.main.pressure;
+tr.appendChild(td);
+
+td = document.createElement("td");
+td.textContent=data.main.humidity+"%";
+tr.appendChild(td);
+
+td = document.createElement("td");
+td.textContent=data.wind.speed;
+tr.appendChild(td);
+
+tbl.style.textAlign="center";
+tbl.appendChild(tr);
+})
+.catch(error => console.log('error is', error));
+</script>
+</body>
+</html>

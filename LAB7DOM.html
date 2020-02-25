@@ -13,9 +13,8 @@
             console.log(paragraps);
             for(let i = 0; i<images.length;i++)
             {
-                images[i].style.display="block";
+                document.body.appendChild(images[i]);
                 images[i].style.position="absolute";
-                images[i].style.zIndex="999999";
                 images[i].style.left="0";
                 images[i].style.top="0";
             }
