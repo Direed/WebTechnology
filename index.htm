@@ -1,53 +1,85 @@
 ﻿<!DOCTYPE HTML>
-
 <html>
-
 <head>
-  <title>Zmist</title>
-  <link href="index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>My blog</title>
 </head>
-
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">My blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            DOM-LAB
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="LAbaDOM.html" target="_blank">Zavd1</a>
+            <a class="dropdown-item" href="LabaDOM2.html" target="_blank">Zavd2</a>
+            <a class="dropdown-item" href="LabaDOM3.html" target="_blank">Zavd3</a>
+            <a class="dropdown-item" href="LAB6DOM.html" target="_blank">Zavd4</a>
+            <a class="dropdown-item" href="LAB7DOM.html" target="_blank">Zavd5</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            EVENTS-LAB
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="LAB1EVENT.html" target="_blank">Zavd1</a>
+            <a class="dropdown-item" href="LAB2EVENT.html" target="_blank">Zavd2</a>
+            <a class="dropdown-item" href="LAB3EVENT.html" target="_blank">Zavd3</a>
+            <a class="dropdown-item" href="LAB4EVENT.html" target="_blank">Zavd4</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            SERVER-CLIENT
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="XMLhttpRequest.html" target="_blank">XML</a>
+            <a class="dropdown-item" href="Fetch.html" target="_blank">FETCH</a>
+            <a class="dropdown-item" href="Axios.html" target="_blank">AXIOS</a>
+            <a class="dropdown-item" href="Weather.html" target="_blank">Weather(one day)</a>
+            <a class="dropdown-item" href="WeatherProbnikForeCast.html" target="_blank">Weather(5 day / 3)</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
 
-<div>
-
- <h1>Вихрест Антон</h1>
- <img src="SCENE64H.JPG" width="15%" height="15%"/>
- <h2>Зміст:</h2>
-  <ol>
-   <li><a href="Lab1.htm" target="_blank">Lab1</a></li>
-   <li><a href="HomeWork1.html" target="_blank">HomeWork1</a></li>
-   <li><a href="Tamagochi.html" target="_blank">Homework2</a></li>
-   <li><a href="LrScope.html" target="_blank">LabScope</a></li>
-   <li><a href="LrFunction.html" target="_blank">LabFunction</a></li>
-   <li><a href="LrMassiv.html" target="_blank">LabMasiv</a></li>
-  </ol>
-  <h3>DOM-LAB</h3>
-  <ol>
-    <li><a href="LAbaDOM.html" target="_blank">Zavd1</a></li>
-    <li><a href="LabaDOM2.html" target="_blank">Zavd2</a></li>
-    <li><a href="LabaDOM3.html" target="_blank">Zavd3</a></li>
-    <li><a href="LAB6DOM.html" target="_blank">Zavd4</a></li>
-    <li><a href="LAB7DOM.html" target="_blank">Zavd5</a></li>
-  </ol>
-  <h4>EVENTS-LAB</h4>
-  <ol>
-    <li><a href="LAB1EVENT.html" target="_blank">Zavd1</a></li>
-    <li><a href="LAB2EVENT.html" target="_blank">Zavd2</a></li>
-    <li><a href="LAB3EVENT.html" target="_blank">Zavd3</a></li>
-    <li><a href="LAB4EVENT.html" target="_blank">Zavd4</a></li>
-  </ol>
-  <h5>Server-Client</h5>
-  <ol>
-    <li><a href="XMLhttpRequest.html" target="_blank">XML</a></li>
-    <li><a href="Fetch.html" target="_blank">FETCH</a></li>
-    <li><a href="Axios.html" target="_blank">AXIOS</a></li>
-    <li><a href="Weather.html" target="_blank">Weather(one day)</a></li>
-    <li><a href="WeatherProbnikForeCast.html" target="_blank">Weather(5 day / 3)</a></li>
-  </ol>
-
-</div>
-
+  <div class="media">
+    <img src="helloguys.gif" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0">Дратуте</h5>
+      Ну раз ты зашел сюда, тогда плоти налоги.....
+    </div>
+  </div>
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -133,6 +133,9 @@ fetch('http://api.openweathermap.org/data/2.5/forecast?q=Smila&appid=d81029a0acf
                 {string_date_text="Thursday";}
                 else
                 if(daynow.getDay()==5)
+                {string_date_text="Friday"}
+                else
+                if(daynow.getDay()==6)
                 {string_date_text="Saturday";}
                 return string_date_text;
             }
